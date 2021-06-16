@@ -1,0 +1,360 @@
+@import "animations.css";
+:root {
+	--color-primario: #f77b57;
+	--color-secundario: #fff;
+  	--max-size-container: 60%;
+	--min-size-container: 85%;
+	--main-section-margin: 70px 0px 70px 0px;
+}
+
+body {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	margin: 0px;
+	padding: 0px;
+	background-color: #282a39;
+	font-family: 'Poppins', sans-serif;
+	color: var(--color-secundario);
+  	margin-bottom: 50px;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+}
+
+
+
+.container .header-container {
+  display: flex;
+  justify-content: center;
+  background: #323647;
+  width: 100%;
+}
+
+
+.container .header-container .header-content {
+  display: flex;
+  justify-content: space-between;
+  width: var(--max-size-container);
+  margin: var(--main-section-margin);
+}
+
+
+.container .content {
+  width: var(--max-size-container);
+}
+
+.container .content .introduce {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: var(--main-section-margin);
+}
+
+.name {/*Title*/
+	font-size: 32px;
+	font-weight: bolder;
+	margin: 0px;
+}
+
+#image {
+	margin: 20px;
+}
+
+#btn-cv {
+	background-color: var(--color-primario);
+	color: white;
+	padding: 15px;
+	border-radius: 8px;
+	outline: none;
+	border: none;
+}
+
+.container .content .experience {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+    flex-wrap: wrap;
+    margin: var(--main-section-margin);
+}
+
+.experience-card {
+	width: 200px;
+	padding: 10px;
+  	margin: 10px;
+	text-align: center;
+	box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.2);
+	animation: fadeInAnimation ease 3s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+.experience-card:hover {
+	background-color: #f77b57;
+}
+
+.experience-card .activity {
+	font-size: 13px;
+}
+
+.experience-card .tittle-card {
+	font-weight: bold;
+}
+
+
+
+.conocimientos-bar {
+	display: grid;
+	grid-template-columns: 35% 55%;
+	grid-gap: 10%;
+}
+
+
+.certificacion-bar{
+	display: flex;
+    justify-content: space-around;
+    width: 100%;
+    box-shadow: 0px 0px 12px 4px rgb(0 0 0 / 20%);
+}
+
+.certificacion-card{
+	display: flex;
+    justify-content: space-around;
+    width: 100%;
+    box-shadow: 0px 0px 12px 4px rgb(0 0 0 / 20%);
+	cursor: pointer;
+	margin: 10px;
+}
+
+.certificacion-card:hover {
+	background-color: #f77b57;
+}
+
+
+
+.container .content .certificaciones {
+    display: grid;
+    grid-template-columns: 96%;
+    grid-gap: 4%;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+
+.container .content .skills {
+	display: grid;
+	grid-template-columns: 48% 48%;
+    grid-gap: 4%;
+
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill {
+    margin: 15px;
+    width: 90%;
+	
+	animation: fadeInAnimation ease 3s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;	
+}
+
+.skill-detail {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+progress {
+	width: 100%;
+	height: 5px;
+	outline: none;
+	border: 0;
+}
+
+progress::-moz-progress-bar { background: var(--color-primario); }
+progress::-webkit-progress-value { background: var(--color-primario); transition: width 3s ease-in-out; }
+
+input[type="text"] {
+	border-radius: 12px;
+	background-color: transparent;
+	outline: none;
+	border: 0px;
+	box-shadow: 0px 0px 9px 5px RGB(77, 47, 43);
+	color: #fff;
+	padding: 10px;
+	margin-left: 5px;
+	width: 100%;
+}
+
+textarea {
+	border-radius: 12px;
+	background-color: transparent;
+	outline: none;
+	border: 0px;
+	box-shadow: 0px 0px 9px 5px RGB(77, 47, 43);
+	color: #fff;
+	padding: 10px;
+	margin-left: 5px;
+	width: 100%;
+}
+
+
+.line-container {
+  margin-top: 20px;
+	position: relative;
+	text-align: left;
+}
+
+.line {
+	border-top: 1px dashed var(--color-primario);
+	;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	z-index: -2;
+}
+
+.text {
+	padding: 0 20px;
+	background-color: #282a39;
+}
+
+
+.contact-form{
+	margin-top: 40px;
+}
+.form-field {
+	display: grid;
+    grid-template-columns: 10% 80%;
+    grid-gap: 10%;
+	margin-top: 30px;
+	align-items: center;
+}
+
+/* MODAL*/
+
+.modal {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.modal .content {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 40px 20px 40px;
+	max-width: 60%;
+	transform: scale(0);
+	transition: transform 300ms cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+.modal.open {
+	opacity: 1;
+	z-index: 1;
+	visibility: visible;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.open .content {
+	transform: scale(1);
+}
+
+.container.blur {
+	filter: blur(7px);
+}
+
+.titulo {
+	color: #fff;
+	font-size: 32px;
+	font-weight: bolder;
+	text-align: center;
+	letter-spacing: 2px;
+}
+
+.subtitulo {
+	letter-spacing: 2px;
+}
+
+.form-modal-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px;
+	width: 100%;
+}
+
+#enter-modal-btn {
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+	padding: 16px 40px 16px 40px;
+	border-radius: 30px;
+	outline: none;
+	border-color: #f77b57;
+	font-size: 15px;
+	margin-top: 20px;
+}
+
+#modal-invalid-msg {
+	color: rgba(255, 0, 0, 0.9);
+	max-width: 70%;
+	text-align: center;
+	line-height: 22px;
+}
+
+
+/* RESPONSIVE */
+
+
+@media (max-width: 1150px) {
+	body { text-align: center; }
+	.container .header-container .header-content { 
+		display: flex; 
+		flex-direction: column; 
+		align-items: center;
+	}
+	#image {order: 1; }
+	#welcome-message {order: 2; }
+	
+	#introduce-container { grid-template-columns: 100%; }
+	#introduce-container #contact { order: 2; margin-top: 20px; }
+	#introduce-container .about-me { order: 1; }
+
+	#conociminetos-container { grid-template-columns: 100%; }
+
+
+	.container .content .certificaciones { grid-template-columns: 48% 48%; }
+
+}
+
+
+@media (max-width: 850px) {
+	#conociminetos-container { grid-template-columns: 100%; }
+	.container .content .experience { justify-content: center; margin-top: 10px;}
+	.container .content .certificaciones { grid-template-columns: 100%; }
+
+	.experience-card { width: 100% }
+	.container .content { width: 85%; }
+	.container .header-container .header-content { width: 85%; }
+
+}

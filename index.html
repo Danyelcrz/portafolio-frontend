@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset='utf-8'>
+      <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+      <title>Daniel Cruz</title>
+      <meta name='viewport' content='width=device-width, initial-scale=1'>
+      <script src='controller/app.js' type="module"></script>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+      <link href="css/hover.css" rel="stylesheet" media="all">
+   </head>
+   <body>
+
+      <div id="popup" class="modal">
+         <div class="content">
+            <p class="titulo">Bienvenido</p>
+            <p class="subtitulo">Ingresa tu email para poder ingresar.</p>
+            <div class="form-modal-container">
+               <input id="email-input" type="text">
+            </div>
+            <p id="modal-invalid-msg" style="display: none;">El email ingresado no es válido.</p>
+            <button id="enter-modal-btn">Aceptar</button>
+         </div>
+      </div>
+    
+      <div class="container">
+         <div class="header-container" id='header'>
+             <div class="header-content">
+                <div id="welcome-message">
+                    <p style="margin: 0px;">¡Hola!</p>
+                    <p class="name"></p>
+                    <p class="profile" style="margin: 0px;"></p>
+                    <p class="description"></p>
+                 </div>
+                 <div id="image">
+                    <img id="image-avatar" style="width: 185px;" src="./assets/images/photoCV.png">
+                 </div>
+             </div>
+         </div>
+
+         <div class="content">
+
+            <div class="introduce" id="introduce-container">
+               <div id="contact">
+                  <p class="name">Contacto</p>
+                  <div id="contact-info"></div>
+                  <button id="btn-cv">Descargar CV</button>
+               </div>
+               <div class="about-me">
+                  <p class="name">Acerca de mi</p>
+                  <p class="goal"></p>
+                  <br>
+                  <div id="about-me-info"></div>
+               </div>
+            </div>
+
+            <div class='line-container'>
+               <span class='text' id="experience-btn">Experiencia</span>
+               <div class='line'></div>
+            </div>
+
+            <div class="experience" id="experience-container"></div>
+
+            <div class="conocimientos-bar" id="conociminetos-container">
+
+               <div>
+                  <div class='line-container'>
+                     <span class='text' id="certificacion-btn">Certificaciones</span>
+                     <div class='line'></div>
+                  </div>
+
+                  <div class="certificaciones" id="certification-container">
+
+                     <div class="certificacion-card">
+                        <p id ="tecnologia">APX</p>
+                        <p id="fecha">Diciembre 2019</p>
+                     </div>
+
+                     <div class="certificacion-card hvr-sweep-to-right">
+                        <p id ="tecnologia">ASO</p>
+                        <p id="fecha">Septiembre 2020</p>
+                     </div>
+
+
+                  </div>
+
+               </div>
+
+               <div>
+                  <div class='line-container'>
+                     <span class='text' id="skills-btn">Conocimientos</span>
+                     <div class='line'></div>
+                  </div>
+
+                  <div class="skills" id="skills-container"></div>
+               </div>
+
+            </div>
+
+<!--                <form class="contact-form">
+                  <div class=form-field>
+                     <label for="name">Nombre:</label>
+                     <input type="text" id="name" name="user_name">    
+                  </div>
+                  <div class=form-field>
+                     <label for="email">Email:</label>
+                     <input type="text" id="email">    
+                  </div>
+                  <div class=form-field>
+                     <label for="msg">Mensaje:</label>
+                     <textarea id="msg" rows="4" cols="50"></textarea>    
+                  </div>
+               </form> -->
+
+         </div>
+      </div>
+   </body>
+</html>
+
