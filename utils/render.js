@@ -5,7 +5,7 @@ const renderInitialData = (data) => {
     setValueByClassName('profile', dataSelected.puesto);
     setValueByClassName('description', dataSelected.objetivo);
 
-    setValueByClassName('goal', dataSelected.objetivo);
+    setValueByClassName('goal', dataSelected.info);
 
 
     createNode('contact-info', 'p', `Email: ${dataSelected.correo}`);
@@ -59,6 +59,24 @@ const renderSkillBar = (skills) => {
 }
 
 
+const renderCertifications = ( proof ) => {
+    const parentRef = document.getElementById('certification-container');
+    parentRef.innerHTML = '';
+    
+    proof.proofs.forEach(proof => {
+        const card = `
+            <div class="certificacion-card">
+                <p id ="tecnologia">${proof.tecnologia}</p>
+                <p id="fecha">${proof.anio}</p>
+            </div>
+        `;
+        parentRef.innerHTML += card;
+    });
+    
+}
+
+
+
 const setValueByClassName = (className, value) => {
     let elementRef = document.getElementsByClassName(className)[0];
     elementRef.innerHTML  = value;
@@ -72,5 +90,5 @@ const createNode = (containerId, nodeType, value) => {
     parentRef.appendChild(node);
 }
 
-export { renderInitialData, renderExperienceCard, renderSkillBar };
+export { renderInitialData, renderExperienceCard, renderSkillBar, renderCertifications };
 

@@ -4,7 +4,8 @@ import { getCookieValue } from "../service/storage.js";
 import { getUsers } from '../service/usuario.js'
 import { getPuestos } from '../service/puesto.js'
 import { getHabilidades } from '../service/habilidad.js';
-import { renderInitialData, renderExperienceCard, renderSkillBar } from '../utils/render.js';
+import { getCertificaciones } from '../service/certificacion.js';
+import { renderInitialData, renderExperienceCard, renderSkillBar, renderCertifications } from '../utils/render.js';
 import { validarEmail } from '../utils/validators.js'
 
 
@@ -34,24 +35,29 @@ const ocultarContenido = () => {
 }
 
 export const inicializarDatos = () => {
+    let cvBtnRef = document.getElementById('btn-cv');
+    cvBtnRef.addEventListener('click', () => {
+        descargarCV();
+    });
+
+
+
     const puestoCallbackFn = () => {
         getPuestos().then ( res => renderExperienceCard( res ) );
     }
 
     const skillsCallbackFn = () => {
         getHabilidades().then ( res => renderSkillBar( res ) );
+        getCertificaciones().then ( res => renderCertifications( res ) );
     }
     
-    getUsers()
-    .then ( res => { 
+    getUsers().then ( res => { 
         renderInitialData( res.usuarios[0] );
         startScrollObserver('experience-btn', puestoCallbackFn); 
         startScrollObserver('conociminetos-container', skillsCallbackFn); } );
 }
 
 
-
-
-
-
-
+const descargarCV = () => {
+    window.open('./assets/docs/cv.pdf', '_blank').focus();
+}
