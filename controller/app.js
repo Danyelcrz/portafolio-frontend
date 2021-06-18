@@ -35,11 +35,21 @@ const ocultarContenido = () => {
 }
 
 export const inicializarDatos = () => {
+
+    let loaderRef =  document.getElementById('loader-spinner');
+    loaderRef.classList.remove('hidden');
+    loaderRef.classList.add('show');
+
+    let mainRef =  document.getElementsByTagName('main')[0];
+    mainRef.classList.add('hidden');
+
+    let footerRef =  document.getElementsByTagName('footer')[0];
+    footerRef.classList.add('hidden');
+
     let cvBtnRef = document.getElementById('btn-cv');
     cvBtnRef.addEventListener('click', () => {
         descargarCV();
     });
-
 
 
     const puestoCallbackFn = () => {
@@ -51,10 +61,26 @@ export const inicializarDatos = () => {
         getCertificaciones().then ( res => renderCertifications( res ) );
     }
     
-    getUsers().then ( res => { 
-        renderInitialData( res.usuarios[0] );
-        startScrollObserver('experience-btn', puestoCallbackFn); 
-        startScrollObserver('conociminetos-container', skillsCallbackFn); } );
+
+    setTimeout( () => {
+         getUsers()
+            .then ( res => { 
+                renderInitialData( res.usuarios[0] );
+                startScrollObserver('experience-btn', puestoCallbackFn); 
+                startScrollObserver('conociminetos-container', skillsCallbackFn); })
+            .then( () => {
+                loaderRef.classList.replace('show', 'hidden');   
+                mainRef.classList.replace('hidden', 'show');   
+                footerRef.classList.replace('hidden', 'show');   
+             })
+            .catch( () => {
+                let errorMsgRef =  document.getElementById('error-msg');
+                errorMsgRef.classList.replace('hidden', 'show');   
+                loaderRef.classList.replace('show', 'hidden');   
+            } );
+
+    } , 500);
+
 }
 
 
